@@ -1,7 +1,7 @@
 {
-  "name": "recipes",
+  "name": "devices",
   "version": "1.0.0",
-  "main": "recipes.js",
+  "main": "devices.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,6 +9,6 @@
     "express": "2.5.11",
     "ejs": "0.7.2"
   },
-  "author": "Joe LeBlanc",
+  "author": "Dan Melancon",
   "license": "BSD"
 }
