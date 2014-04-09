@@ -6,7 +6,7 @@ app.use(express.bodyParser());
 var devices = require('./devices.js');
 
 app.get('/', function(req, res){
-  res.render('index.ejs', {title: 'Clever Kitchens'});
+  res.render('index.ejs', {title: 'DataLog'});
 });
 
 app.get('/devices', devices.list);
