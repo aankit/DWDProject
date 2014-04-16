@@ -1,0 +1,21 @@
+
+<h1>{{user.name}}'s Devices</h1>
+  <p>A list of {{user.name}}'s devices.</p>
+
+  <table class='table table-striped table-bordered'>
+    <thead>
+      <tr>
+        <th>Device Name</th>
+     </tr>
+    </thead>
+    <tbody>
+
+      {{#each user.device}}
+        <tr>
+          <td><a href="/users/{{../user.name}}/{{name}}">{{name}}</a></td>
+        </tr>
+    {{/each}}
+
+
+</tbody>
+  </table>
