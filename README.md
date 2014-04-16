@@ -1,4 +1,4 @@
 DWDProject
 ===========
 
-A simple Yun DataStore that can store input from multiple devices with multiple sensors.
+A simple Yun DataStore that can store input from multiple devices with multiple sensors. Work in progress.
