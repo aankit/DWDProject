@@ -30,6 +30,16 @@ app.get('/users/:name', function(req, res){
   });
 });
 
+app.post('/users/:name', function(req, res){
+	var device  = req.body['deviceName'];
+	var name = req.params.name;
+	var key = findUser(name);
+	res.render('devices', {
+		user: data.users[key],
+		newDevice : device
+	});
+});
+
 app.get('/users/:name/:deviceName', function(req, res){
 	var name = req.params.name;
 	var key = findUser(name);
@@ -40,6 +50,21 @@ app.get('/users/:name/:deviceName', function(req, res){
     device: data.users[key].device[key2]
   });
 });
+app.post('/users/:name/:deviceName', function(req, res){
+	var sensor  = req.body['sensorName'];
+	var name = req.params.name;
+	var key = findUser(name);
+	var deviceName = req.params.deviceName;
+	var key2 = findDevice(data.users[key], deviceName);
+	res.render('sensors', {
+		user: data.users[key],
+		device: data.users[key].device[key2],
+		newSensor : sensor
+	});
+});
+
+
+
 
 function findUser(name){
 	for (var i = 0; i<data.users.length; i++){

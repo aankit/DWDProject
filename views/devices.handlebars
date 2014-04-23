@@ -13,9 +13,12 @@
       {{#each user.device}}
         <tr>
           <td><a href="/users/{{../user.name}}/{{name}}">{{name}}</a></td>
-        </tr>
-    {{/each}}
-
-
+        </tr>{{/each}}
+        {{> addDevice}}
+  <tr>
+<td><form action="" method="post">
+<input type='text' name='deviceName' placeholder=' Add a Device'><button type='submit'>Add</button> 
+</form></td>
+</tr>
 </tbody>
   </table>
