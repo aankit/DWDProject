@@ -9,7 +9,20 @@
   },
   "dependencies": {
     "express": "3.5.1",
-    "express3-handlebars": "^0.5.0"
+    "mongoose": "^3.8.8",
+    "express3-handlebars": "^0.5.0",
+    "express-session": "^1.0.2",
+    "ejs" : "~0.8.5", 
+    "cookie-parser": "^1.0.1",
+    "body-parser": "^1.0.2",
+    "connect-mongo": "git+https://github.com/kcbanner/connect-mongo.git#master",
+    "moment": "^2.6.0",
+    "morgan": "*",
+    "mongodb": "^1.4.2",
+    "passport" : "~0.1.17",    
+    "passport-local" : "~0.1.6", 
+    "connect-flash" : "~0.1.1",   
+    "bcrypt-nodejs" : "latest"  
   },
   "author": "Dan Melancon",
   "license": "BSD"

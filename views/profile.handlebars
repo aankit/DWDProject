@@ -1,0 +1,75 @@
+<body>
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1><span class="fa  fa-meh-o fa-spin"></span> Profile Page <span class="fa  fa-meh-o fa-spin"></span> </h1>
+
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+  </div>
+</body>
+  <div class="row">
+
+    <!-- LOCAL INFORMATION -->
+    <div class="col-sm-6">
+      <div class="well">
+        {{#if user.local.username}}
+          <h2><span class="fa fa-beer"></span> {{user.local.username}}'s Devices </h2>
+          {{#if user.local.device}}
+            {{#each user.local.device}}
+          <h3> <strong> Device: </strong> {{this.deviceName}} </h3>
+           <form action="/removeDevice" method="post"><input type= 'hidden' name='deviceId' value='{{this._id}}'><button type='submit' class="btn btn-danger btn-xs">Remove this Device</button></form><br>
+            
+            {{#if this.sensor}}
+            {{#each this.sensor}}
+            
+              <h5> <strong> Sensor: </strong> {{this.sensorName}} </h5>
+              <form action="/removeSensor" method="post">
+                <input type= 'hidden' name='deviceId' value='{{../this._id}}'>
+              <input type= 'hidden' name='sensorId' value='{{this._id}}'>
+              <button type='submit' class="btn btn-danger btn-xs">Remove this Sensor</button></form><br>
+                {{#if this.sensorValue}}
+                   <h5> <strong> LastValue: </strong> {{this.sensorValue}} </h5>
+                {{/if}}
+              <div class="col-lg-6">
+              <div class="input-group">
+              <span class="input-group-btn">
+              <form action="/writeValue" method="post">
+              <input type="text" class="form-control" name='sensorValue'  placeholder=' Add Value'>
+              <input type= 'hidden' name='deviceId' value='{{../this._id}}'>
+              <input type= 'hidden' name='sensorId' value='{{this._id}}'>
+              <button type='submit' class="btn btn-primary">Write Value</button></form>
+               </span>
+                </div>
+            </div><br><br>
+            {{/each}}
+            {{/if}}
+         
+            <div class="col-lg-6">
+            <div class="input-group">
+            <span class="input-group-btn">
+            <form action="/newSensor" method="post">
+            <input type="text" class="form-control" name='sensorName'  placeholder=' Add a Sensor'>
+            <input type= 'hidden' name='deviceId' value='{{this._id}}'>
+            <button type='submit' class="btn btn-primary">Add</button></form>
+             </span>
+            </div>
+          </div><br><br>
+            {{/each}}
+            {{/if}}
+            <div class="col-lg-6">
+            <div class="input-group">
+            <span class="input-group-btn">
+            <form action="/newDevice" method="post">
+            <input type="text" class="form-control" name='deviceName'  placeholder=' Add a Device'>
+            <button type='submit' class="btn btn-primary">Add</button></form>
+            </span>
+            </div>
+            </div><br><br>
+            {{/if}} 
+        
+
+      </div>
+    </div>
+
+    </div>
+</body>
+</html>
