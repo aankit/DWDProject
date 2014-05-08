@@ -16,12 +16,14 @@
           {{#if user.local.device}}
             {{#each user.local.device}}
           <h3> <strong> Device: </strong> {{this.deviceName}} </h3>
+          <h5> <strong> DeviceID: </strong> {{this.id}}</h5>
            <form action="/removeDevice" method="post"><input type= 'hidden' name='deviceId' value='{{this._id}}'><button type='submit' class="btn btn-danger btn-xs">Remove this Device</button></form><br>
             
             {{#if this.sensor}}
             {{#each this.sensor}}
             
               <h5> <strong> Sensor: </strong> {{this.sensorName}} </h5>
+              <h5> <strong> SensorID: </strong> {{this.id}}</h5>
               <form action="/removeSensor" method="post">
                 <input type= 'hidden' name='deviceId' value='{{../this._id}}'>
               <input type= 'hidden' name='sensorId' value='{{this._id}}'>
@@ -42,7 +44,7 @@
             </div><br><br>
             {{/each}}
             {{/if}}
-         
+            
             <div class="col-lg-6">
             <div class="input-group">
             <span class="input-group-btn">
@@ -71,5 +73,6 @@
     </div>
 
     </div>
+   
 </body>
 </html>
