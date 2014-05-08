@@ -61,7 +61,7 @@ module.exports = function(app, passport) {
   	app.post('/writeValue', isLoggedIn,  function(req, res) { 
 		var dev = req.user.local.device.id(req.body['deviceId'])
 		var sen = dev.sensor.id(req.body['sensorId']);
-		sen.update({sensorValue: req.body['sensorValue']});
+		sen.sensorValue.push(req.body['sensorValue']);
     	req.user.local.save(function (err) {
   		if (err) return handleError(err)
   		console.log('Success!');
